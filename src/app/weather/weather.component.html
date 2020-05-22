@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="text-center my-4">Cerca per il meteo:</h3>
+      <form
+        [formGroup]="ricercaMeteoForm"
+        (ngSubmit)="inviaAOpenWeather(ricercaMeteoForm.value)">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            id="locazioneMeteo"
+            placeholder="Scrivi una città"
+            formControlName="location"
+          />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success btn-md">
+            Cerca il meteo della città scritta
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-center my-4">Dettagli meteo:</h3>
+      <p class="text-center">
+        Temperatura minima: {{ weatherData?.main.temp_min }}
+      </p>
+      <p class="text-center">
+        Temperatura massima: {{ weatherData?.main.temp_max }}
+      </p>
+      <p class="text-center">
+        Temperatura attuale: {{ weatherData?.main.temp }}
+      </p>
+      <p class="text-center">
+        Nazione: {{ weatherData?.sys.country }}
+      </p>
+      <p class="text-center">
+        Città cercata: {{ weatherData?.name }}
+      </p>
+    </div>
+  </div>
+</div>
